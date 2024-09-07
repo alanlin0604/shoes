@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="../../IPconfig.js"></script>
+
+  <!-- 設定LOGO -->
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon"> 
+  <link rel="stylesheet" href="./stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/table.css">
+  
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  
+  <script type="text/javascript" src="./javascripts/PrintingDispatchSystemSS.js"></script>
+
+  <title>鞋業智能製造與品質管理系統</title>
+</head>
+
+<style>
+  .error {
+    color: red;
+    margin-left: 5px;
+  }
+
+  .box {
+
+    border: 1px solid red;
+
+    width: 0px;
+
+    height: 0px;
+
+    position: absolute;
+
+    opacity: 0.5;
+
+    cursor: move;
+  }
+
+  #selectContainer {
+    position: relative;
+    width: auto;
+    /* 演示宽高与位置 */
+    height: auto;
+
+
+    overflow: hidden;
+    overflow-x: auto;
+  }
+</style>
+
+<body>
+  <div class="w-100" id="container">
+    <nav>
+      <div id="logo">
+        鞋業智能製造與品質管理系統
+      </div>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li class="dropdown"><a href="#">製令單管理<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+             <li><a href="Excel.html">匯入製令單</a></li>
+             <li><a href="OrderList.html">製令單管理</a></li>
+           </ul>
+           </div>
+         </li>
+        <li class="dropdown pageselected"><a href="#">生產派工<i class="fa fa-caret-down"></i> </a>
+         <div class="dd">
+          <ul>  
+            <li><a href="CuttingDispatch.html">剪 裁</a></li>
+            <li><a href="PrintingDispatch.html">印 刷</a></li>
+            <li><a href="HighFrequencyDispatch.html">高周波</a></li>
+          </ul>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#">生產監控<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+            <li><a href="CuttingMonitor.html">剪 裁</a></li>
+            <li><a href="PrintingMonitor.html">印 刷</a></li>
+            <li><a href="HighFrequencyMonitor.html">高周波</a></li>
+           </ul>
+           </div>
+         </li>
+         <li class="dropdown"><a href="mon3.html">品管分析<i class="fa fa-caret-down"></i> </a>
+         </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container-fluid w-75 white-bg p-4 mt-5 mb-5" style="border-radius: 15px; min-height: 750px;">
+    <div class="container" style="margin-top: 20px ;">
+      <div id="workname" style="text-align: center;">
+        <h3>
+          印刷工作
+        </h3>
+      </div>
+
+      <div class="d-flex bd-highlight mb-3" id="xx">
+
+
+
+      </div>
+
+
+
+
+
+
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-shrink-1 bd-highlight" style="margin-top: 20px;">
+          <label for="" style="white-space:nowrap;margin-bottom: 5px;">鞋號:</label>
+          <br>
+          <label for="" style="white-space:nowrap;margin-top:10px">數量:</label>
+
+        </div>
+
+
+
+
+
+        <div id="selectContainer">
+          <table class="table table-bordered" style="margin-top: 20px;" id="ya">
+
+
+            <thead>
+
+              <tr id="size">
+
+
+
+
+
+              </tr>
+            </thead>
+
+            <thead>
+
+              <tr id="num">
+
+
+
+
+              </tr>
+            </thead>
+
+
+
+          </table>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+      <div class="d-flex justify-content-end" id="bn">
+
+      </div>
+
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10%; text-align: center;">部位名稱</th>
+              <th scope="col" style="width: 10%; text-align: center;">型體名稱</th>
+              <th scope="col" style="width: 35%; text-align: center;">材料名稱及規格+附註</th>
+              <th scope="col" style="width: 10%; text-align: center;">本批數量（全）</th>
+              <th scope="col" style="width: 10%; text-align: center;">單位</th>
+              <th scope="col" style="width: 25%; text-align: center;">派工進度</th>
+            </tr>
+          </thead>
+
+          
+
+
+
+
+          <tbody id="xxx">
+
+
+
+          </tbody>
+
+        </table>
+
+
+
+
+
+
+
+
+      <div class="container">
+        <div class="d-flex flex-row-reverse bd-highlight">
+          <div class="p-2 bd-highlight">
+
+            <!-- <button type="button" class="btn btn-danger" onclick="finish()" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">完成派工</button> -->
+
+
+
+
+          </div>
+          <div class="p-2 bd-highlight" id="gg">
+
+          </div>
+          <!-- <div class="p-2 bd-highlight">
+            <a href="Dispatchsystem.html">
+              <button type="button" class="btn btn-dark">回上一頁</button>
+            </a>
+          </div>
+
+          <div class="p-2 bd-highlight">
+            <a href="index.html">
+              <button type="button" class="btn btn-primary">回首頁</button>
+
+            </a>
+          </div> -->
+
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+  
+  <!------------
+  <script>
+    (function () {
+      var mouseStopId;
+      var mouseOn = false;
+      var startX = 0;
+      var startY = 0;
+      // 获取容器元素
+      var selectContainer = document.getElementById('selectContainer');
+      selectContainer.onmousedown = function (e) {
+        clearEventBubble(e);
+        if (e.buttons !== 1 || e.which !== 1) return;
+        mouseStopId = setTimeout(function () {
+          mouseOn = true;
+          // 调整坐标原点为容器左上角
+          startX = e.clientX - selectContainer.offsetLeft + selectContainer.scrollLeft;
+          startY = e.clientY - selectContainer.offsetTop + selectContainer.scrollTop;
+          var selDiv = document.createElement('div');
+          selDiv.style.cssText = 'position:absolute;width:0;height:0;margin:0;padding:0;border:1px dashed #eee;background-color:#aaa;z-index:1000;opacity:0.6;display:none;';
+          selDiv.id = 'selectDiv';
+          // 添加框选元素到容器内
+          document.getElementById('selectContainer').appendChild(selDiv);
+          selDiv.style.left = startX + 'px';
+          selDiv.style.top = startY + 'px';
+        }, 20);
+        document.onmousemove = function (e) {
+          if (!mouseOn) return;
+          clearEventBubble(e);
+          var selectContainer = document.getElementById('selectContainer');
+          var _x = e.clientX - selectContainer.offsetLeft + selectContainer.scrollLeft;
+          var _y = e.clientY - selectContainer.offsetTop + selectContainer.scrollTop;
+          var _H = selectContainer.offsetWidth
+          // 鼠标移动超出容器内部，进行相应的处理
+          // 向右拖拽
+          if (e.clientX > selectContainer.offsetLeft + selectContainer.offsetWidth) {
+            let maxLeft = selectContainer.scrollWidth - selectContainer.offsetWidth
+            let step = selectContainer.scrollLeft + 20
+            if (step >= maxLeft) {
+              selectContainer.scrollLeft = maxLeft
+            } else {
+              selectContainer.scrollLeft = step
+            }
+          }
+          // 向左拖拽
+          if (e.clientX < selectContainer.offsetLeft) {
+            let minLeft = 0
+            let step = selectContainer.scrollLeft - 20
+            if (step <= minLeft) {
+              selectContainer.scrollLeft = minLeft
+            } else {
+              selectContainer.scrollLeft = step
+            }
+          }
+          
+          var selDiv = document.getElementById('selectDiv');
+          selDiv.style.display = 'block';
+          selDiv.style.left = Math.min(_x, startX) + 'px';
+          selDiv.style.top = Math.min(_y, startY) + 'px';
+          if ((Math.min(_x, startX) + Math.abs(_x - startX)) <= selectContainer.scrollWidth) {
+            selDiv.style.width = Math.abs(_x - startX) + 'px';
+          }
+          selDiv.style.height = Math.abs(_y - startY) + 'px';
+
+         
+        };
+        document.onmouseup = function (e) {
+          if (!mouseOn) return;
+          clearEventBubble(e);
+          var selDiv = document.getElementById('selectDiv');
+          var fileDivs = document.getElementsByClassName('fileDiv');
+          var selectedEls = [];
+          var l = selDiv.offsetLeft;
+          var t = selDiv.offsetTop;
+          var w = selDiv.offsetWidth;
+          var h = selDiv.offsetHeight;
+          for (var i = 0; i < fileDivs.length; i++) {
+            var sl = fileDivs[i].offsetWidth + fileDivs[i].offsetLeft;
+            var st = fileDivs[i].offsetHeight + fileDivs[i].offsetTop;
+            if (sl > l && st > t && fileDivs[i].offsetLeft < l + w && fileDivs[i].offsetTop < t + h) {
+              //fileDivs[i].style.background = '#eee';
+              fileDivs[i].style.color = '#eee';
+              selectedEls.push(fileDivs[i]);
+              
+            }
+          }
+
+          for (var i = 0; i < selectedEls.length; i++) {
+            console.log(selectedEls[i].innerText);
+           
+          }
+
+          selDiv.style.display = 'none';
+          mouseOn = false;
+        };
+      }
+      function clearEventBubble(e) {
+        if (e.stopPropagation) e.stopPropagation();
+        else e.cancelBubble = true;
+
+        if (e.preventDefault) e.preventDefault();
+        else e.returnValue = false;
+      }
+    })();
+
+
+
+  </script>
+  
+---------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+
+</html>

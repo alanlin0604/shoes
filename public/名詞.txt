@@ -1,0 +1,8 @@
+Printing印刷
+Cutting剪裁
+HighFrequency高週波
+SewingMachine針車
+Outsole大底
+ManufacturingOrder製令單
+QualityControlAnalysis品質管理
+Cost成本

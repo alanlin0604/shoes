@@ -1,0 +1,82 @@
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    border: 2px solid #000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+.btn-1{
+   background:rgb(47, 80, 99);
+   color: #fff;
+   line-height: 42px;
+   padding: 0;
+   border: none;
+ }
+ .btn-1 span {
+   position: relative;
+   display: block;
+   width: 100%;
+   height: 100%;
+ }
+ .btn-1:before,
+ .btn-1:after {
+   position: absolute;
+   content: "";
+   height: 0%;
+   width: 2px;
+   background: #000;
+ }
+ .btn-1:before {
+   right: 0;
+   top: 0;
+   transition: all 500ms ease;
+ }
+ .btn-1:after {
+   left: 0;
+   bottom: 0;
+   transition: all 500ms ease;
+ }
+ .btn-1:hover{
+   color: #000;
+   background:rgb(51, 161, 212);
+ }
+ .btn-1:hover:before {
+   transition: all 500ms ease;
+   height: 100%;
+ }
+ .btn-1:hover:after {
+   transition: all 500ms ease;
+   height: 100%;
+ }
+ .btn-1 span:before,
+ .btn-1 span:after {
+   position: absolute;
+   content: "";
+   background: #000;
+ }
+ .btn-1 span:before {
+   left: 0;
+   top: 0;
+   width: 0%;
+   height: 2px;
+   transition: all 500ms ease;
+ }
+ .btn-1 span:after {
+   right: 0;
+   bottom: 0;
+   width: 0%;
+   height: 2px;
+   transition: all 500ms ease;
+ }
+ .btn-1 span:hover:before {
+   width: 100%;
+ }
+ .btn-1 span:hover:after {
+   width: 100%;
+ }

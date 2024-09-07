@@ -1,0 +1,31 @@
+html,body{
+    background-image: url('../images/black.jpg');
+    
+    background-size: cover;
+    background-repeat: repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+
+    form label {
+        display: inline-block;
+        width: 100px;
+      }
+      
+      form div {
+        margin-bottom: 10px;
+      }
+      
+      
+      .error {
+        color: red;
+        margin-left: 5px;
+      }
+      
+      
+      label.error {
+        display: inline;
+      }
+
+      
+

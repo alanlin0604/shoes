@@ -1,0 +1,20 @@
+.nav-tabs .nav-item .nav-link {
+  color: #787878;
+}
+
+.nav-tabs .nav-item .nav-link:hover {
+  background-color: #E6E6E6;
+  color: black;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background-color: white;
+  color: #393C41;
+  font-weight: bold;
+
+}
+
+.tab-content .tab-pane {
+  color: #393C41;
+}

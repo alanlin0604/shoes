@@ -1,0 +1,201 @@
+html, body{
+  background-color: #F0F0F0;
+  color: #252422;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+.div::-webkit-scrollbar {
+  display:none
+}
+/*------------------------------------*/
+.nav-link {
+  cursor: pointer;
+  font-size: 12px;
+  position: relative;
+  white-space: nowrap;
+  color: var(--color-text);
+}
+
+.nav-link::before,
+.nav-link::after {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+}
+
+.nav-link::before {
+  content: '';
+  /* show by default */
+}
+
+.nav-button {
+  font-size: 1rem;
+}
+
+.nav-button::before {
+  transform-origin: 50% 100%;
+  transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+  clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.nav-button:hover::before {
+  transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
+  clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.nav-button span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.nav-button:hover span {
+  transform: translate3d(0, -2px, 0);
+}
+/*
+.title_header:hover {
+  color: #EDEDED !important;
+  text-shadow: 2px 2px 4px #E0E0E0;
+}
+*/
+.title_header {
+  text-shadow: -10px 0 15px rgba(255, 255, 255, 0.3), -20px 0 30px rgba(255, 255, 255, 0.2), -30px 0 45px rgba(255, 255, 255, 0.1);
+  animation: shadow-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes shadow-glow {
+  from {
+    text-shadow: -10px 0 15px rgba(255, 255, 255, 0.3), -20px 0 30px rgba(255, 255, 255, 0.2), -30px 0 45px rgba(255, 255, 255, 0.1);
+  }
+  to {
+    text-shadow: -10px 0 20px rgba(255, 255, 255, 0.5), -20px 0 40px rgba(255, 255, 255, 0.4), -30px 0 60px rgba(255, 255, 255, 0.3);
+  }
+}
+/*---------------------------------------*/
+@media screen and (max-width: 1199px) {
+  .pix{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+@media screen and (min-width: 1200px) {
+  .pix{
+    margin-top: -100px;
+  }
+
+  .txt{
+    margin-top: -200px;
+  }
+}
+/*----------------------------------------------------*/
+.box{
+  margin: 100px auto;
+  width: 400px;
+  height: 400px;
+  position: relative;
+  outline: none;
+}
+.card{
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  transition: 3s;
+}
+.front{
+  overflow: hidden;
+  z-index: 2;
+  transform: perspective(1000px) rotateY(0deg);
+}
+.back{
+  background-color: #E8E8E8;
+  border: none;
+  text-align: center;
+  line-height: 350px;
+  font-size: 50px;
+  z-index: 1;
+  transform: perspective(1000px) rotateY(180deg);
+}
+
+.box:hover .front{
+  transform: perspective(1000px) rotateY(-180deg);
+}
+.box:hover .back{
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.sbox {
+  transform: translateX(150%);  /*向右移動400%，若不寫預設為0*/
+  transition: transform 1s ease;
+}
+
+.sbox:nth-of-type(even) {  /*even:偶數*/
+  transform: translateX(-150%);
+}
+
+.sbox.show {
+  transform: translateX(0);
+}
+/*---------------------------------------------------*/
+.model_box{
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px; 
+  padding: 10px; 
+  text-align: center;
+}
+
+.model_wrap {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.model_image {
+  text-align: center;
+  border-radius: 10px;
+  display: block;
+  cursor: pointer;
+}
+.model_mask {
+  position: absolute;
+  /* top: 0; */
+  right: 0;
+  left: 0;
+  bottom: -82%;
+  width: 100%;
+  height: 100%;
+  /* opacity: 0; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255 , 0.9);
+  padding: 16px 0;
+  box-sizing: border-box;
+  transition: all 1s;
+}
+.model_wrap:hover .model_mask {
+  background: white;
+  padding: 30px 0;
+  bottom: 0;
+  /* opacity: 1; */
+}

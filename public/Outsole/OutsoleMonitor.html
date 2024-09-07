@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="../IPconfig.js"></script>
+
+  <!-- 設定LOGO -->
+  <link rel="shortcut icon" href="../images/鞋子商標1.ico" type="image/x-icon"> 
+  <link rel="stylesheet" href="../stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="../css/nav.css">
+
+  
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  <script type="text/javascript" src="../javascripts/大底監控.js"></script>
+ 
+
+  <title>大底生產監控</title>
+</head>
+
+<body>
+  <div class="w-100" id="container">
+    <nav>
+      <div id="logo">
+        <a href="../index.html">鞋業智能製造與品質管理系統</a>
+      </div>
+      <ul>
+        <li><a href="../index.html">首頁</a></li>
+        <li class="dropdown"><a href="#">製令單管理<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+             <li><a href="../ManufacturingOrder/ManufacturingOrderImport.html">匯入製令單</a></li>
+             <li><a href="../ManufacturingOrder/ManufacturingOrderList.html">製令單管理</a></li>
+           </ul>
+           </div>
+         </li>
+        <li class="dropdown pageselected"><a href="#">生產派工<i class="fa fa-caret-down"></i> </a>
+         <div class="dd">
+          <ul>  
+            <li><a href="../Cutting/CuttingDispatch.html">剪 裁</a></li>
+            <li><a href="../Printing/PrintingDispatch.html">印 刷</a></li>
+            <li><a href="../HighFrequency/HighFrequencyDispatch.html">高周波</a></li>
+            <li><a href="../SewingMachine/SewingMachineDispatch.html">針車</a></li>
+            <li><a href="OutsoleDispatch.html">大底</a></li>
+          </ul>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#">生產監控<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+            <li><a href="../Cutting/CuttingMonitor.html">剪 裁</a></li>
+            <li><a href="../Printing/PrintingMonitor.html">印 刷</a></li>
+            <li><a href="../HighFrequency/HighFrequencyMonitor.html">高周波</a></li>
+            <li><a href="../SewingMachine/SewingMachineMonitor.html">針車</a></li>
+            <li><a href="OutsoleMonitor.html">大底</a></li>
+           </ul>
+           </div>
+         </li>
+         <li class="dropdown"><a href="../QualityControlAnalysis/QualityControlAnalysis.html">品管分析<i class="fa fa-caret-down"></i> </a>
+         </li>
+         <li class="dropdown"><a href="../Cost/CostStatistics.html">成本統計<i class="fa fa-caret-down"></i> </a></li>
+      </ul>
+    </nav>
+  </div>
+
+    
+
+  <div class="container-fluid w-75 white-bg p-4 mt-5" style="border-radius: 15px; min-height: 750px;">
+    <div class="container">
+      <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+          <caption>
+            <h3><strong>大底 生產監控</strong></h3>
+          </caption>
+        </div>     
+      </div>
+  <!--要可以往下拉的 加 class="scrollable" -->
+      <div class="container" id="xxx">
+        <table class="table caption-top">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 10%; ">製令單號</th>
+              <th scope="col" style="width: 12%; text-align: center;">大底編號</th>
+              <th scope="col" style="width: 15%; text-align: center;">上傳時間</th>
+              <th scope="col" style="width: 22%; text-align: center;">上次編輯日期</th>
+              <th scope="col" style="width: 21%; text-align: center;">派工進度</th>
+              <th scope="col" style="width: 30%; text-align: center;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <div class="container">
+        <div class="d-flex flex-row-reverse bd-highlight">
+          <div class="p-2 bd-highlight">
+            <a href="index.html">
+              <button type="button" class="btn btn-primary">回首頁</button>
+            </a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+
+
+    
+</body>
+</html>

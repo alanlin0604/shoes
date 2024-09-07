@@ -1,0 +1,89 @@
+.flex {
+    display: flex;
+    height: 700px;
+    padding: 30px;
+    /* background-image:url("../images/s.jpg")  ;*/
+    background-color: black;
+    flex-wrap: wrap;/*是否換行*/
+   /* justify-content: space-around; */
+    /*flex-direction: row;排版呈現方式*/
+    justify-content:space-around;
+   /* align-content: flex-start; /*次軸*/
+    align-items: center;
+    background-size: cover;
+  }
+  h3{
+    
+    font-size: 25px;
+    text-align: left;
+      
+
+  }
+  p{
+    font-size: 20px;
+  }
+  img{
+      vertical-align: middle;
+  }
+  .item {
+    display: flex;
+   
+    height: 250px;
+    color: white;
+    margin:25 px;
+    font-size: 2rem;
+    justify-content: flex-start; /*主軸*/
+    align-items: flex-start;
+
+  }
+  
+  
+.flex-1{
+ 
+    flex-basis:350px;
+    align-self: flex-start;
+    flex-grow: 0;
+    background-color:rgb(197, 33, 33);
+ 
+}
+.flex-2{
+    /*order: -1;小於0跑左邊大於0跑右邊（排位置）*/
+    align-self: center;
+    flex-basis:350px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 90, 41);
+    
+}
+.flex-3{
+    align-self: flex-start;
+    flex-basis:350px;
+    justify-content: center;
+    align-items: center;
+    background-color: orange;
+}
+.flex-4{
+    align-self: flex-end;
+    flex-basis:350px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25, 187, 25);
+}
+.flex-5{
+    align-self: center;
+    
+    flex-basis:350px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(49, 49, 209);
+}
+.flex-6{
+    align-self: flex-end;
+    
+    flex-basis:350px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(138, 12, 177);
+}
+
+  

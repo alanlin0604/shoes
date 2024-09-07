@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+  </script>
+
+  <script type="text/javascript" src="../javascripts/newapi.js"></script>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <script src="../IPconfig.js"></script>
+
+  <!-- 設定LOGO -->
+  <link rel="shortcut icon" href="../images/鞋子商標1.ico" type="image/x-icon"> 
+  <link rel="stylesheet" href="../stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/jquery-3.4.1.min.js"></script> 
+  
+  <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+  <link href="../css/css.css" rel="stylesheet">
+  <link href="../javascripts/api.js" rel="stylesheet">
+  <!-- <link href="./javascripts/css.js"rel="stylesheet">-->
+
+
+  <title>匯入製令單</title>
+</head>
+
+<body>
+  <div class="w-100" id="container">
+    <nav>
+      <div id="logo">
+        <a href="../index.html">鞋業智能製造與品質管理系統</a>
+      </div>
+      <ul>
+        <li><a href="../index.html">首頁</a></li>
+        <li class="dropdown"><a href="#">製令單管理<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+             <li><a href="../ManufacturingOrder/ManufacturingOrderImport.html">匯入製令單</a></li>
+             <li><a href="../ManufacturingOrder/ManufacturingOrderList.html">製令單管理</a></li>
+           </ul>
+           </div>
+         </li>
+        <li class="dropdown pageselected"><a href="#">生產派工<i class="fa fa-caret-down"></i> </a>
+         <div class="dd">
+          <ul>  
+            <li><a href="../Cutting/CuttingDispatch.html">剪 裁</a></li>
+            <li><a href="../Printing/PrintingDispatch.html">印 刷</a></li>
+            <li><a href="../HighFrequency/HighFrequencyDispatch.html">高周波</a></li>
+            <li><a href="../SewingMachine/SewingMachineDispatch.html">針車</a></li>
+            <li><a href="../Outsole/OutsoleDispatch.html">大底</a></li>
+          </ul>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#">生產監控<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+            <li><a href="../Cutting/CuttingMonitor.html">剪 裁</a></li>
+            <li><a href="../Printing/PrintingMonitor.html">印 刷</a></li>
+            <li><a href="../HighFrequency/HighFrequencyMonitor.html">高周波</a></li>
+            <li><a href="../SewingMachine/SewingMachineMonitor.html">針車</a></li>
+            <li><a href="../Outsole/OutsoleMonitor.html">大底</a></li>
+           </ul>
+           </div>
+         </li>
+         <li class="dropdown"><a href="../QualityControlAnalysis/QualityControlAnalysis.html">品管分析<i class="fa fa-caret-down"></i> </a>
+         </li>
+         <li class="dropdown"><a href="../Cost/CostStatistics.html">成本統計<i class="fa fa-caret-down"></i> </a></li>
+      </ul>
+    </nav>
+  </div>
+ 
+  
+  <div class="container mt-5 text-center">
+    <div class="mx-auto" style="width: 800px; height: 500px; border-radius: 5px; background-color: white;">
+      <p class="h2 pt-4" style="color: #3E5B94;"><strong>匯入製令單</strong></p>
+      <div class="mt-3 mx-auto" style="height: 400px; width: 700px; border: #3E5B94 dashed 5px;">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-cloud-arrow-up-fill" viewBox="0 0 16 16" style="color: #3E5B94;">
+          <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2z"/>
+        </svg>
+        <p class="h4">Excel轉檔匯入資料庫</p>
+
+        <div class="mx-auto mt-3" style="width: 400px;">
+          <input type="file" class="form-control" id="input" name="uploadfile" accept=".xlsx,.xls">
+        </div>
+        
+        <div class="mx-auto mt-5">
+            <div class="progress mx-auto" id="myProgress" style="background-color: #E9ECEF; width: 70%; height: 20px;">
+              <div class="progress-bar" id="myBar"></div>
+            </div>
+            <div class="mx-auto" id="prlabel"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-3 text-center">
+      <button type="button" class="btn btn-success btn-lg" onclick="click0()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+        </svg>
+        匯入</button>
+
+        <div class="mt-5 justify-content-center" role="alert" id="x"></div>
+  </div>
+
+  <div class="container justify-content-center">
+    <div class="p-2 bd-highlight" id="into">
+         
+
+    </div>
+    
+
+  
+        <div class="d-flex mb-3">
+          <!--flex上下三層-->
+          
+          <div class="p-2 bd-highlight"></div>
+          <!--Flex item 2-->
+          <div class="p-2 bd-highlight"></div>
+          <!--Flex item 3-->
+        </div>
+
+
+
+      <div class="p-2 flex-shrink-1 bd-highlight"
+        style="border-width:3px;border-style: none;margin-top:8px;margin-right:15px;">
+
+
+
+        <div class="d-flex flex-column bd-highlight mb-3">
+          <!--flex 上下3層-->
+
+          <div class="p-2 bd-highlight" style="height:600px; border:0;">
+            <!--Flex item 1-->
+              <!--格式顯示-->
+              <div class="container white-bg" id="tablelist" style="display: none;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 15%;">部位名稱</th>
+                      <th scope="col" style="width: 20%;">產品編號</th>
+                      <th scope="col" style="width: 35%;">材料名稱及規格+附註</th>
+                      <th scope="col" style="width: 15%;">本批數量（全）</th>
+                      <th scope="col" style="width: 15%;">單位</th>
+
+
+                    </tr>
+
+                    
+                  </thead>
+
+                  <tbody id="exceltable">
+
+
+
+                  </tbody>
+                </table>
+
+              </div>
+
+
+
+
+
+
+          </div>
+          
+          <!--Flex item 2-->
+
+          <!--Flex item 3-->
+
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  <!--<input type="file" id="input">-->
+  <table id="tbl-data"></table>
+
+  <script>
+
+  </script>
+
+
+
+
+
+
+</body>
+
+</html>

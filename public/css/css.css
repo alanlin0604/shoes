@@ -1,0 +1,16 @@
+.scrollable{
+  height:500px;
+  width:900px;
+  overflow: scroll; 
+}
+
+#myProgress {
+  width: 100%;
+  background-color:white;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: rgb(21, 112, 197);
+}

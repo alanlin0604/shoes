@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="../../IPconfig.js"></script>
+  
+  <!-- 設定LOGO -->
+  <link rel="shortcut icon" href="./images/鞋子商標1.ico" type="image/x-icon"> 
+  <link rel="stylesheet" href="./stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/navtabs.css">
+
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  
+  <script type="text/javascript" src="./javascripts/QCanalyze.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+
+
+
+  <title>鞋業生產系統</title>
+</head>
+
+<body>
+  <div class="w-100" id="container">
+    <nav>
+      <div id="logo">
+        鞋業生產系統
+      </div>
+      <ul>
+        <li><a href="首頁.html">首頁</a></li>
+        <li class="dropdown"><a href="#">製令單管理<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+             <li><a href="new.html">匯入製令單</a></li>
+             <li><a href="OrderList.html">製令單管理</a></li>
+           </ul>
+           </div>
+         </li>
+        <li class="dropdown"><a href="#">生產派工<i class="fa fa-caret-down"></i> </a>
+         <div class="dd">
+          <ul>  
+            <li><a href="CuttingDispatch.html">剪 裁</a></li>
+            <li><a href="PrintingDispatch.html">印 刷</a></li>
+            <li><a href="HighFrequencyDispatch.html">高周波</a></li>
+            <li><a href="針車組合.html">針車</a></li>
+            <li><a href="大底組合.html">大底</a></li>
+          </ul>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#">生產監控<i class="fa fa-caret-down"></i> </a>
+          <div class="dd">
+           <ul>  
+            <li><a href="CuttingMonitor.html">剪 裁</a></li>
+            <li><a href="PrintingMonitor.html">印 刷</a></li>
+            <li><a href="HighFrequencyMonitor.html">高周波</a></li>
+            <li><a href="針車監控.html">針車</a></li>
+            <li><a href="大底監控.html">針車</a></li>
+           </ul>
+           </div>
+         </li>
+         <li class="dropdown pageselected"><a href="mon3.html">品管分析<i class="fa fa-caret-down"></i> </a>
+         </li>
+         <li class="dropdown"><a href="成本統計.html">成本統計<i class="fa fa-caret-down"></i> </a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <style>
+    .button-select{
+      border: 1px #D6D6D6 solid!important;
+      border-bottom: 0px !important;
+      background-color: white !important;
+    }
+  </style>
+  <div class="container mt-5">
+    <div class="row" style="height: 100px;">
+      <div class="col-4 h-100 button-select" style="border:1px #D6D6D6 solid; background-color: #EDEDED; border-radius: 15px 0 0 0;" id="CuttingButton">
+        <button class="w-100 h-100" style="background: none; border: none;"  onclick="CuttingButton()"> 剪裁 </button>
+      </div>
+      <div class="col-4 h-100" style="border:1px #D6D6D6 solid; background-color: #EDEDED;" id="PrintingButton">
+        <button class="w-100 h-100" style="background: none; border: none;" onclick="PrintingButton()"> 印刷 </button>
+      </div>
+      <div class="col-4 h-100" style="border:1px #D6D6D6 solid; background-color: #EDEDED; border-radius: 0 15px 0 0;" id="HighFrequencyButton">
+        <button class="w-100 h-100" style="background: none; border: none;" onclick="HighFrequencyButton()"> 高周波 </button>
+      </div>
+    </div>
+    <div class="row" style="background-color: white; border: 1px #D6D6D6 solid; border-top: none; border-radius: 0 0 15px 15px;">
+      <div class="row justify-content-end pt-2">
+
+        </div>
+        <div class="col-11 mx-auto">
+          <canvas id="myChart"></canvas>
+        </div>
+        <!-- <div class="col-5">
+          <canvas id="myChart2"></canvas>
+        </div> -->
+
+
+          <!-- <table class="table caption-top">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 15%; text-align: center">部位名稱</th>
+                <th scope="col" style="width: 15%; text-align: center">尺寸</th>
+                <th scope="col" style="width: 20%; text-align: center">數量</th>
+                <th scope="col" style="width: 20%; text-align: center">來料問題</th>
+                <th scope="col" style="width: 30%; text-align: center">品質</th>
+              </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+    
+          </table>
+          <table class="table">
+            <tbody>
+            <tr>
+              <td style="width: 15%; text-align: center;">鞋身</td>
+              <td style="width: 15%; text-align: center;">13.5</td>
+              <td style="width: 20%; text-align: center;">1200</td>
+              <td style="width: 20%; text-align: center;">100</td>
+              <td style="width: 30%; text-align: center;">
+                <div class="row">
+                  <div class="col-sm-10" style="padding-left:0px;">
+                    <div class="progress">
+                        <div id="myprogressbar" class="progress-bar" role="progressbar" style="width: 20%; " aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div id="progressbartext" class="col-sm-2" style="font-size:10px;padding-left:0px;">20%</div>
+                </div>
+              </td>
+            </tr>
+        
+        </tbody>
+          </table> -->
+
+    </div>
+    
+
+  </div>
+
+   <div class="container mt-5 mb-5">
+            <div class="row justify-content-between" style="height: 500px;">
+                            <div class="col-8 h-100">
+                              <div class="p-3 h-100" style="background-color: white; border-radius: 15px; border: 1px #D6D6D6 solid;">
+                                <div class="row px-3">
+                                  <div class="col-1">
+                                    <button type="button" class="btn btn-outline-dark" style="width: 100px;" id="Informationbutton" data-bs-toggle="modal" data-bs-target="#Information_size" hidden>詳細資訊</button>
+
+                                    <div class="modal fade" id="Information_size" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog modal-xl modal-dialog-scrollablemodal-dialog-scrollable">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h4><strong>詳細資訊</strong></h4>
+                                            <div class="text-right">
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                          </div>
+
+                                          <div class="modal-body">
+
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  
+                                  </div>
+                                  
+                                  <div class="col-3 ms-auto" style="text-align: end;">
+                                    <select class="form-select w-75" id="sectionselect" onchange="Select(this.value)"></select>
+                                  </div>
+                                  
+                                    
+                                  
+                                </div>
+                                
+                                <canvas id="myChart2"></canvas>
+                                
+                              </div>
+                            </div>
+                            <div class="col-4 h-100" >
+                              <div class="p-3 h-100" style="background-color: white; border-radius: 15px; border: 1px #D6D6D6 solid;">
+                                <canvas id="myChart3"></canvas>                                  
+                                <div style="position: relative;">
+                                  <canvas id="myChart3"></canvas>
+                                  <div id="DoughNutPercent" style="margin-top: -360px; font-size: 40px; text-align: center;">50%</div>
+                                </div> 
+                                
+                              </div>
+                            </div>
+
+            </div>
+    
+  </div>
+  <div class="container mt-5" >
+    
+  </div>
+  
+
+
+  <div class="modal fade" id="Informationw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollablemodal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4><strong>詳細資訊</strong></h4>
+          <div class="text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <table class="table">
+            <thead style="background-color: #EDEDED;">
+              <tr>
+                <th scope="col" style="text-align: center;">製令單號</th>
+                <th scope="col" style="text-align: center;">部位名稱</th>
+                <th scope="col" style="text-align: center;">尺寸</th>
+                <th scope="col" style="text-align: center;">數量</th>
+                <th scope="col" style="text-align: center;">完成數量</th>
+                <th scope="col" style="text-align: center;">目前進度</th>
+              </tr>
+            </thead>
+
+            <tbody style="background-color: #F7F7F7;" id="NFCDATA${section}">
+          
+            </tbody>
+            
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+</body>
+
+
+</html>

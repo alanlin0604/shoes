@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="../../IPconfig.js"></script>
+
+  <!-- 設定LOGO -->
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon"> 
+  <link rel="stylesheet" href="./stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="./css/nav.css">
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  
+  <script type="text/javascript" src="./javascripts/shoes.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+
+  <title>鞋業智能製造與品質管理系統</title>
+</head>
+
+<body>
+  <style>
+    div.preview-images>img {
+      width: 100%;
+    }
+
+    .error {
+      color: red;
+      margin-left: 5px;
+    }
+  </style>
+  <div class="w-100" style="margin-bottom: 1%;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+          <a href="index.html" style="text-decoration: none; color: black; font-size: 20px;">
+            <strong>鞋業智能製造與品質管理系統</strong>
+          </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+      
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="text-align: center;">
+          <ul class="navbar-nav ms-atuo me-auto mb-2 mb-lg-0 drop-down-menu nav-menu" style="padding-left: 25%; font-size: 20px;">
+            <li class="nav-item">
+              <a href="#">生管部門</a>
+              <ul>
+                  <li>
+                    <a href="excel.html">匯入檔案</a>
+                  </li>
+                  <li>
+                    <a href="OrderList.html">製令單管理</a>
+                  </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">裁斷部門</a>
+              <ul>
+                <li>
+                  <a href="CuttingDispatch.html" >剪裁</a>
+                    <ul id="Cutting" hidden>
+
+                    </ul>
+                </li>
+                <li>
+                  <a href="PrintingDispatch.html">印刷</a>
+                  <ul id="Printing" hidden>
+
+                  </ul>
+                </li>
+                <li>
+                  <a href="HighFrequencyDispatch.html">高周波</a>
+                  <ul id="HighFrequency" hidden>
+
+                  </ul>
+                </li>
+                <li>
+                  <a href="mon3.html" style="color: red;">裁斷倉</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">針車部門</a>
+              <ul>
+                <li>
+                  <a href="#">組合分片</a>
+                    <ul hidden>
+                    </ul>
+                </li>
+                <li>
+                  <a href="#" style="color: red;">鞋面倉</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">大底部門</a>
+                <ul>
+                  <li>
+                    <a href="#">組合大底</a>
+                      <ul hidden>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#" style="color: red;">大底倉</a>
+                  </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">成型部門</a>
+                <ul>
+                  <li>
+                    <a href="#">前段</a>
+                      <ul hidden>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#">中段</a>
+                      <ul hidden>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#">後段</a>
+                      <ul hidden>
+                      </ul>
+                  </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">成品倉</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <a href="login.html">
+              <button type="button" class="btn btn-outline-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                </svg>
+                登入
+              </button>
+            </a>
+          </form>
+      </div>
+
+      </div>
+    </nav>
+  </div>
+  <div class="container px-4">
+    <form id="form" action="/upload" method="POST" enctype="multipart/form-data" style="margin-top: 20px;">
+      <div class="row gx-5" >
+
+
+
+        <div class="col" >
+          
+          <div class="p-3 border " style="background-color: rgba(black, black, black,0.1) ;">
+            
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id1" class="col-sm-2 col-form-label" style="white-space: nowrap;">NFC ID</label>
+              <div class="col-sm-10">
+              
+                  <select class="form-select" aria-label="Default select example" id="id1" name="id1" style="margin-left: 10px;">
+                    <option selected>請選擇NFCID...</option>
+
+                  </select>
+           
+              </div>
+            </div>
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id2" class="col-sm-2 col-form-label" style="white-space: nowrap;">品牌</label>
+              <div class="col-sm-10">
+                <select class="form-select" aria-label="Default select example" id="id2" name="id2" style="margin-left: 10px; ">
+                  <option selected  >請選擇品牌...</option>
+
+                </select>
+              </div>
+            </div>
+
+            
+
+
+
+            <!--------
+              <input type="text" class="form-control" placeholder="請輸入ID" id="id1" name="id1">
+           
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id2" class="col-sm-2 col-form-label" style="white-space: nowrap;">品牌</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="請輸入品牌" id="id2" name="id2"
+                  style="margin-left: 10px;">
+              </div>
+            </div>
+               ----->
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id3" class="col-sm-2 col-form-label" style="white-space: nowrap;">型號</label>
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" class="form-control" placeholder="請輸入型號" id="id3" name="id3"
+                  style="margin-left: 10px;">
+              </div>
+            </div>
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id4" class="col-sm-2 col-form-label" style="white-space: nowrap;">尺寸</label>
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" class="form-control" placeholder="請輸入尺寸" id="id4" name="id4"
+                  style="margin-left: 10px;">
+              </div>
+            </div>
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id5" class="col-sm-2 col-form-label" style="white-space: nowrap;">材質</label>
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" class="form-control" placeholder="請輸入材質" id="id5" name="id5"
+                  style="margin-left: 10px;">
+              </div>
+            </div>
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id6" class="col-sm-2 col-form-label" style="white-space: nowrap;">製造商</label>
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" class="form-control" placeholder="請輸入製造商" id="id6" name="id6"
+                  style="margin-left: 10px;">
+              </div>
+            </div>
+
+            <div class="mb-3 row" style="width: 300px;">
+              <label for="id7" class="col-sm-2 col-form-label" style="white-space: nowrap;">出產地</label>
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" class="form-control" placeholder="請輸入出產地" id="id7" name="id7"
+                  style="margin-left: 10px;">
+              </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">上傳</button>
+            <a href="index.html"> <button type="button" class="btn btn-dark">回首頁</button></a>
+            <a href="shoesmon.html"> <button type="button" class="btn btn-dark">回上一頁</button></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="p-3 border " style="background-color: rgba(black, black, black,0.1) ;">
+
+
+            <div class="mb-3" style="width: 300px;">
+              <label for="formFile" class="form-label"style="margin-left: 5px;" >選擇圖片
+                <button type="button" class="btn btn-dark btn-sm"  onclick="a();" style="margin-left: 10px;">重新選擇圖片</button>
+              </label>
+              <input class="form-control" type="file" id="input-files" name="file"
+                accept="image/gif, image/jpeg, image/png">
+
+            </div>
+            <div class="row" style="height: 540px;">
+              <div class="col" style="height: 540px;">
+                <label for="formFile" class="form-label"style="margin-left: 5px;">圖片預覽
+                </label>
+                <div class="preview-images" style="height: 150px; width: 150px;"></div>
+
+                
+
+
+              </div>
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+
+
+
+
+
+  <script>
+    $(document).ready(function () {
+      let imagesPreview = function (input, placeToInsertImagePreview) {
+        if (input.files) {
+          let filesAmount = input.files.length;
+          for (i = 0; i < filesAmount; i++) {
+            let reader = new FileReader();
+            reader.onload = function (event) {
+              $($.parseHTML("<img id=imgs>"))
+                .attr("src", event.target.result)
+                .appendTo(placeToInsertImagePreview);
+            };
+            reader.readAsDataURL(input.files[i]);
+          }
+        }
+      };
+      $("#input-files").on("change", function () {
+        imagesPreview(this, "div.preview-images");
+      });
+    });
+  </script>
+</body>
+
+</html>

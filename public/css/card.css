@@ -1,0 +1,80 @@
+.card {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    color: #a18a96;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    padding: 10px;
+    background-size: cover;
+    border-radius: 20px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.card::before,
+.card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(60% + 35px);
+    background-color: rgb(255, 255, 255);
+    transition: transform .5s.15s ease-in;
+    z-index: -1;
+}
+
+.card::before {
+    top: 0;
+    clip-path:
+        polygon(0 0, 100% 0, 100% 45%, 0% 100%);
+    transform: translateY(-100%);
+}
+
+
+.card::after {
+    bottom: 0;
+    clip-path: polygon(0 55%, 100% 0, 100% 100%, 0% 100%);
+    transform: translateY(100%);
+}
+
+.card:hover::before,
+.card:hover::after {
+    transform: translateY(0);
+}
+
+.card:hover .card-text-excel{
+    color: #DE8A3D;
+    transition-delay: .55s;
+}
+
+.card:hover .card-text-dis{
+    color: #68B8BE;
+    
+    transition-delay: .55s;
+}
+.card:hover .card-text-mon3{
+    color: #F0C33B;
+    transition-delay: .55s;
+}
+.card:hover .card-text-shoesmon{
+    color: #58bf70;
+    transition-delay: .55s;
+}
+.card:hover .card-text-people{
+    color: #CD7672;
+    transition-delay: .55s;
+}
+.card:hover .card-text-unopen{
+    color: #BA80B9;
+    transition-delay: .55s;
+}
+.card:hover .card-text-shoes{
+    color: #DABC9F;
+    transition-delay: .55s;
+}
+.card:hover .card-text-shoes2{
+    color: #D9A79E;
+    transition-delay: .55s;
+}

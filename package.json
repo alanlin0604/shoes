@@ -1,9 +1,9 @@
 {
-  "name": "expressapi",
+  "name": "shoes",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "^1.20.0",
@@ -15,7 +15,7 @@
     "dotenv": "^8.6.0",
     "ejs": "^3.1.8",
     "express": "~4.16.1",
-    "http-errors": "~1.6.3",
+    "http-errors": "^1.8.1",
     "jade": "~1.11.0",
     "joi": "^14.3.1",
     "mariadb": "^2.5.6",
